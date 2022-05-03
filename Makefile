@@ -15,4 +15,7 @@ options:
 tm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
-.PHONY: all options
+run: tm
+	./tm
+
+.PHONY: all options run

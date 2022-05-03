@@ -1,3 +1,5 @@
 scopes:
   - implementation: turing machine implementation
   - interface: capabilities for humans and other programmers to interface with the implementation
+  - misc: miscellaneous (e.g. non-code)
+  - doc: project documentation
