@@ -42,7 +42,8 @@ int set_tape(tape_t* tape, int* data, unsigned int slots) {
 	int i, failed;
 	failed = 0;
 	for (i = 0; i < slots; i++) {
-		if (tape->head > tape->slots) {
+		// FIXME: Logic is unclear here
+		if (tape->head >= tape->slots) {
 			failed = 1;
 			break;
 		}
