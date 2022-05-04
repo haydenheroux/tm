@@ -22,3 +22,8 @@ int delete_tape(tape_t* tape);
 // Returns 0 if all slots were replicated successfully.
 // Returns the number of slots successfully replicated on failure.
 int set_tape(tape_t* tape, int* data, unsigned int slots);
+
+// Print the contents of a tape, with the position of the head being highlighted.
+// Returns 0 if the tape was printed successfully.
+// Returns 1 on failure.
+int print_tape(tape_t* tape);

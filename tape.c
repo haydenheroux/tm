@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "tape.h"
@@ -53,5 +54,21 @@ int set_tape(tape_t* tape, int* data, unsigned int slots) {
 	if (failed) {
 		return i;
 	}
+	return 0;
+}
+
+// Print the contents of a tape, with the position of the head being highlighted.
+// Returns 0 if the tape was printed successfully.
+// Returns 1 on failure.
+int print_tape(tape_t* tape) {
+	int i;
+	for (i = 0; i < tape->head; i++) {
+		printf("%d,", tape->tape[i]);
+	}
+	printf("\033[7m%d\033[m", tape->tape[i++]);
+	for (; i < tape->slots; i++) {
+		printf(",%d", tape->tape[i]);
+	}
+	puts("");
 	return 0;
 }
