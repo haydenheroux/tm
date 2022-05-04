@@ -22,6 +22,7 @@ tape_t* new_tape(unsigned int slots) {
 	tape->tape = memory;
 	tape->head = 0; // Sets the head at the "start" of the tape by default.
 	tape->slots = slots;
+	tape->highest_slot = slots - 1;
 	return tape;
 }
 

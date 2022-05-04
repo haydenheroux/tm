@@ -4,6 +4,7 @@ typedef struct {
 	int* tape;
 	unsigned int head;
 	unsigned int slots;
+	unsigned int highest_slot;
 } tape_t;
 
 // Create a new tape.
