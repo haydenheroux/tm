@@ -44,13 +44,16 @@ int set_tape(tape_t* tape, int* data, unsigned int slots) {
 	int i, failed;
 	failed = 0;
 	for (i = 0; i < slots; i++) {
-		// FIXME: Logic is unclear here
-		if (tape->head >= tape->slots) {
+		if (tape->head > tape->highest_slot) {
 			failed = 1;
 			break;
 		}
 		tape->tape[tape->head] = data[i];
 		tape->head++;
+	}
+	// FIXME: Replicating exactly `tape->slots` values results in out-of-bounds head.
+	if (tape->head > tape->highest_slot) {
+		tape->head = tape->highest_slot;
 	}
 	if (failed) {
 		return i;
